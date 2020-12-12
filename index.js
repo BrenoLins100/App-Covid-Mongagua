@@ -3,7 +3,7 @@ const fs = require ('fs');
 
 async function robo () {
     
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     const acessaUrl = 'https://www.mongagua.sp.gov.br/';
     await page.goto(acessaUrl);
@@ -14,20 +14,23 @@ async function robo () {
     //})
     
     const listaInput = await page.evaluate(()=>{
-        const nodeList = document.querySelectorAll('.banner-covid-label');
-        const nodeList2 = document.querySelectorAll('.banner-covid-value');
+        const legenda = document.querySelectorAll('.banner-covid-label');
+        const valores = document.querySelectorAll('.banner-covid-value');
 
-        const nodeArray = [...nodeList,...nodeList2];
+        const arrayLegendas = [...legenda];
+        const arrayValores = [...valores];
 
-        const inputList = nodeArray.map( ({innerHTML}) => ({
-            innerHTML
-        }))
+        const filtro = arrayLegendas.map((x)=>x.innerHTML);
+        const filtro2 = arrayValores.map((x)=>x.innerHTML);
+
+        const juntaFiltros = filtro.map((z,i)=> [z,filtro2[i]]);
+
     
-        return inputList
+        return juntaFiltros
         
     });
 
-    fs.writeFile('infoCovid.json', JSON.stringify(listaInput, null, 2), err=>{
+    fs.writeFile('infoCovid.json', JSON.stringify(listaInput,null,2), err=>{
         if(err) throw new Error('Algo deu errado')
 
         console.log('Sucesso!')

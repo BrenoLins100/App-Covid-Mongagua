@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <script index.js></script>
-    <script teste.js></script>
     <title>Casos de Covid</title>
     
     <style>
@@ -21,20 +20,23 @@
     
     <div class="container m-30">
         <h1>Robô que acessa páginas</h1>
-
-        <div class="btn btn-primary">Testar</div>
         <h2>Resultado:</h2>
-        <img src="example.png"img-responsive result" alt="...">
+        <div class="toast"></div>
 
     </div>
     
     <script>
 
-        fetch('https://brenolins100.github.io/infoCovid.json')
-        .then(Response => Response.json())
-        .then(data=>{
-            console.log(data)
-        })
+        async function execute(){
+            const response = await fetch('./infoCovid.json');
+            const data = await response.json();
+            const resultados = data.map((x)=>`<li>${x}</li>`).join('').replace(new RegExp(',','g'),': ');
+            
+            
+            document.querySelector('.toast').innerHTML = resultados;    
+        }
+
+        execute();
 
     </script>
 

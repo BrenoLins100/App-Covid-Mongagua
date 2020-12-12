@@ -1,44 +1,30 @@
 [
-  {
-    "innerHTML": "Notificados"
-  },
-  {
-    "innerHTML": "Suspeitos Domiciliar"
-  },
-  {
-    "innerHTML": "Recuperados"
-  },
-  {
-    "innerHTML": "Suspeitos"
-  },
-  {
-    "innerHTML": "Confirmados"
-  },
-  {
-    "innerHTML": "Descartados"
-  },
-  {
-    "innerHTML": "Óbitos"
-  },
-  {
-    "innerHTML": "3705"
-  },
-  {
-    "innerHTML": "182"
-  },
-  {
-    "innerHTML": "1036"
-  },
-  {
-    "innerHTML": "190"
-  },
-  {
-    "innerHTML": "1566"
-  },
-  {
-    "innerHTML": "1949"
-  },
-  {
-    "innerHTML": "30"
-  }
+  [
+    "Notificados",
+    "3872"
+  ],
+  [
+    "Suspeitos Domiciliar",
+    "297"
+  ],
+  [
+    "Recuperados",
+    "1036"
+  ],
+  [
+    "Suspeitos",
+    "305"
+  ],
+  [
+    "Confirmados",
+    "1594"
+  ],
+  [
+    "Descartados",
+    "1973"
+  ],
+  [
+    "Óbitos",
+    "30"
+  ]
 ]
